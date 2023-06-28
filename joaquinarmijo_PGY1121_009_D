@@ -1,0 +1,114 @@
+
+nif=()
+dvnif=()
+nombre=()
+edad=()
+estado_conyugal=()
+convalidador1=True
+convalidador2=True
+convalidador3=True
+convalidador4=True
+convalidador5=True
+contador2=0
+i=0
+
+def menu2():
+    print("ingrese la opcion 1 si se encuentra solteros")
+    print("ingrese la opcion 2 si se encuentra casado")
+    print("ingrese la opcion 3 si se encuentra viudo")
+    print("ingrese la opcion 4 si se encuentra divorciado")
+def convalidadornif(rut, cv):
+    contador=0
+    x=0
+    for c in nif:
+        x=+1
+        if rut== c:
+           if cv==dvnif(x):
+               contador+=1
+    if(contador==1):
+        return True
+    else:
+        return False
+            
+                
+
+
+
+def grabar():
+    
+    while(convalidador1 !=False):
+        nif.append=(input("favor de ingresar su nif sin los ultimos 3 digitos verificadores:  "))
+        dvnif.append=(input("favor de ingresar los ultimos 3 digitos verificadores del nif:  "))
+        if len(nif(i))==8 and len(dvnif(i))==3 and convalidadornif(nif(i), dvnif(i))==True:
+            convalidador1==False
+        else:
+            print("\n\n\nvuelva a ingrasar correctamente los valores\n\n\n")
+
+    while(convalidador2 !=False):
+        nombre.append(input("ingrese su nombre siendo mayor a 8 digitos: "))
+        if len(nombre(i))>=8:
+            convalidador2=False
+        else:
+            print("\n\n\nvuelva a ingrasar correctamente los valores\n\n\n")
+    
+    while(convalidador3 !=False):
+        edad.append(input("ingrese su edad siendo esta mayor o igual a 0: "))
+        if edad(i)>=0:
+            convalidador3=False
+        else:
+            print("\n\n\nvuelva a ingrasar correctamente los valores\n\n\n")
+    
+    while(convalidador4 !=False):
+        menu2()
+        estado_conyugal.append(input("favor de ingresar su opcion: "))
+        if(estado_conyugal(i)<=4 and estado_conyugal>=1):
+            convalidador4=False
+        else:
+            print("\n\n\nvuelva a ingrasar correctamente los valores\n\n\n")
+
+def imprimir(rut,dv):
+    x=0
+    for c in nif:
+        x=+1
+        if rut== c:
+           if dv==dvnif(x):
+               break
+           
+    print("sus datos son los siguientes:\n ")
+    print("su nif es", nif(x), "-",dvnif(x))
+    print("nombre: ", nombre(x))
+    print("edad", edad(x))
+    print("estado conyugal", estado_conyugal(x))
+
+def buscador(rut,dv):
+    if(convalidadornif(rut, dv)==True):
+        imprimir(rut, dv)
+    else:
+        print("\n\n no se encuentra su nif registrado \n\n")
+
+
+while(convalidador5!=False):
+    print("ingrese 1 si desea grabar")
+    print("ingrese 2 si desea buscar")
+    print("ingrese 3 si desea imprimir un certificado")
+    print("ingrese 4 si desea salir")
+    
+    z=int(input("ingrese su opcion: "))
+    if z==1:
+        grabar()
+    if z==2:
+        o=input("ingrese los primeros 8 digitos del nif: ")
+        u=input("ingrese los ultimos 3 digitos del nif: ")
+        buscador(o,u)
+    if z==3:
+        o=input("ingrese los primeros 8 digitos del nif: ")
+        u=input("ingrese los ultimos 3 digitos del nif: ")
+        print("sus certificados son los siguientes: ")
+        print("datos personales: ")
+        buscador(o,u)
+
+    if z==4:
+        convalidador5=False
+        print("muchas gracias por ingresar, realizado por joaquin armijo, V 1.0")
+
+
